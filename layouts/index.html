@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <main>
+    {{ range .Site.Data.repositories }}
+      <div>
+        <a href="https://strangesast.github.io/{{ .name }}">{{ .name }}</a>
+        <a href="{{ .url }}">code</a>
+      </div>
+    {{ end }}
+  </main>
+{{ end }}
