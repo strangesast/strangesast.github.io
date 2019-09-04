@@ -1,0 +1,127 @@
+@import '~@angular/material/theming';
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.title {
+  position: relative;
+}
+
+.title > h1 {
+  font-family: 'KeplerStd-Bold';
+  font-size: 8rem;
+  color: white;
+  margin: 200px 0 -20px 0;
+  padding: 0 8px;
+  mix-blend-mode: difference;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+nav, nav > ul {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+nav > ul {
+  list-style-type: none;
+  text-transform: uppercase;
+
+  & > li {
+    padding: 8px 12px;
+    cursor: pointer;
+    & > a {
+      display: block;
+      position: relative;
+      letter-spacing: 0.02rem;
+      text-decoration: none;
+      color: inherit;
+      &:after {
+        opacity: 0;
+        transform: translate(0, 2px);
+        content: '';
+        height: 0.02rem;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        background: black;
+        border-bottom: 1px solid black;
+        transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+    }
+    &:hover > a:after {
+      transform: translate(0,0);
+      opacity: 1;
+    }
+  }
+}
+
+.panels {
+  display: flex;
+  align-items: flex-start;
+  font-weight: 300;
+  margin: 20px 0 8px 0;
+  overflow-x: auto;
+  padding: 12px;
+
+  & > .panel {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 240px;
+    grid-template-rows: min-content 100px min-content;
+    padding: 8px 12px;
+    margin-right: 40px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    & > * {
+      grid-column: 1 / 2;
+    }
+    & > .title {
+      padding: 0 0 1em 0;
+      font-size: 1.2rem;
+      grid-row: 1 / 2;
+      z-index: 1;
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 100%);
+    }
+
+    & > .preview {
+      padding: 8px 0;
+      grid-row: 1 / 4;
+      position: relative;
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: auto;
+      justify-items: center;
+      align-items: center;
+      & > * {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+      }
+      & > img {
+        max-height: 100%;
+      }
+    }
+
+    & > .description {
+      margin: 0;
+      padding: 1em 0 0 0;
+      z-index: 1;
+      font-size: 0.8rem;
+      grid-row: 3 / 4;
+      background: rgb(255,255,255);
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    @include mat-elevation-transition;
+    &:hover {
+      @include mat-elevation(2);
+    }
+  }
+}
