@@ -7,14 +7,16 @@
 
 .title {
   position: relative;
+  display: flex;
 }
 
 .title > h1 {
   font-family: 'KeplerStd-Bold';
   font-size: 8rem;
   color: white;
-  margin: 200px 0 -20px 0;
+  margin: 120px 0 -20px 0;
   padding: 0 8px;
+  box-sizing: border-box;
   mix-blend-mode: difference;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
@@ -33,6 +35,8 @@ nav > ul {
   & > li {
     padding: 8px 12px;
     cursor: pointer;
+    font-weight: 200;
+
     & > a {
       display: block;
       position: relative;
@@ -77,6 +81,8 @@ nav > ul {
     margin-right: 40px;
     box-sizing: border-box;
     border: 1px solid transparent;
+    border-radius: 2px;
+    overflow: hidden;
     cursor: pointer;
 
     & > * {
@@ -111,7 +117,7 @@ nav > ul {
 
     & > .description {
       margin: 0;
-      padding: 1em 0 0 0;
+      padding: 1em 0;
       z-index: 1;
       font-size: 0.8rem;
       grid-row: 3 / 4;

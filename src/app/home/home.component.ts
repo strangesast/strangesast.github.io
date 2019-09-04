@@ -18,8 +18,8 @@ import { Component } from '@angular/core';
           <img src="https://github.com/strangesast/wallbox/raw/master/images/wallbox.png"/>
         </div>
         <div class="title">{{panel.title}}</div>
-        <p class="description">{{panel.description}}</p>
-
+        <div class="description">{{panel.description}}</div>
+        <div class="tags"><mat-chip-list><mat-chip *ngFor="let tag of panel.tags">{{tag}}</mat-chip></mat-chip-list></div>
       </div>
     </div>
   `,
@@ -32,11 +32,18 @@ export class HomeComponent {
       title: `Seeburg Wallbox Conversion`,
       url: ['/projects', 'seeburg-wallbox-conversion'],
       description: `Convert wallbox AC signal to digital serial to play music on a Raspberry Pi`,
+      tags: ['grpc', 'ATtiny85', 'docker'],
     },
     {
       title: `Pool Heater Performance Monitoring`,
       url: ['/projects', 'pool-heater-performance'],
       description: `Graph pool temperature with bluetooth connected temperature sensor.`,
+      tags: ['Bluetooth LE', 'web bluetooth', 'ds18b20', 'ATtiny85', 'd3'],
+    },
+    {
+      title: `nginx & ffmpeg video streaming`,
+      url: ['/projects', 'nginx-video-streaming'],
+      description: `stream live video from linux video device with nginx and hls`
     },
   ];
 }
